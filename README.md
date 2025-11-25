@@ -1,20 +1,37 @@
 # Nhap-m-n-cnpm-nhom3-quan-li-he-thong-khach-san
 #Một ứng dụng quản lí he thong khach san đơn giản bằng Python.
-#Họ tên: Ngô Thị Huyền Phúc
-#MSSV: 24S1020061
-#https://github.com/Huyenphuc1234
-#Email: huyenphuc1235@example.com
-# src/main.py
+Nhận phòng
+class Room:
+    def __init__(self, room_number, room_type, price):
+        self.room_number = room_number
+        self.room_type = room_type
+        self.price = price
+        self.is_available = True
+        self.guest_name = None
 
-from utils import calculate_sum
+    def check_in(self, guest_name):
+        if self.is_available:
+            self.is_available = False
+            self.guest_name = guest_name
+            print(f"✓ Nhận phòng {self.room_number} cho khách {guest_name}")
+        else:
+            print(f"✗ Phòng {self.room_number} đã có khách.")
+class Hotel:
+    def __init__(self):
+        self.rooms = [
+            Room(101, "Đơn", 300000),
+            Room(102, "Đơn", 300000),
+            Room(201, "Đôi", 500000),
+            Room(202, "Đôi", 500000)
+        ]
 
-def run_project():
-    """Hàm chạy logic chính của dự án."""
-    a = 5
-    b = 10
-    result = calculate_sum(a, b)
-    print(f"Kết quả của {a} + {b} là: {result}")
+    def check_in_room(self):
+        room_number = int(input("Nhập số phòng muốn nhận: "))
+        guest_name = input("Tên khách: ")
 
-if __name__ == "__main__":
-    run_project()
-# toi ko quan tam
+        for room in self.rooms:
+            if room.room_number == room_number:
+                room.check_in(guest_name)
+                return
+        
+        print("✗ Không tìm thấy phòng!")
