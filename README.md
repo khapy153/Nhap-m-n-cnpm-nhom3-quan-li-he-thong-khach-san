@@ -36,4 +36,9 @@ SELECT id, username, email
 FROM users
 WHERE status = 'active'
 ORDER BY created_at DESC;
+SELECT id, username, email
+FROM users
+WHERE status = 'active'
+ORDER BY created_at DESC;
+
 
