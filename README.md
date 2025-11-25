@@ -32,3 +32,8 @@ def welcome():
 if __name__ == "__main__":
     app.run(debug=True)
 if
+SELECT id, username, email
+FROM users
+WHERE status = 'active'
+ORDER BY created_at DESC;
+
