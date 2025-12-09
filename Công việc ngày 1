@@ -1,20 +1,20 @@
 # serializers.py
 
 from rest_framework import serializers
-from .models import KhachHang  # Thay bằng model của bạn
+from .models import KhachHang  
 
 class KhachHangSerializer(serializers.ModelSerializer):
     class Meta:
-        model = KhachHang  # Thay bằng model của bạn
-        fields = '__all__'  # Hoặc chỉ liệt kê các field cần thiết
+        model = KhachHang  
+        fields = '__all__' 
 # views.py
 
 from rest_framework.generics import UpdateAPIView
-from .models import KhachHang  # Thay bằng model của bạn
-from .serializers import KhachHangSerializer  # Thay bằng serializer của bạn
+from .models import KhachHang  
+from .serializers import KhachHangSerializer 
 
 class KhachHangUpdateView(UpdateAPIView):
-    queryset = KhachHang.objects.all()  # Lọc các khách hàng
+    queryset = KhachHang.objects.all()  
     serializer_class = KhachHangSerializer
 
     def get_object(self):
@@ -25,8 +25,8 @@ class KhachHangUpdateView(UpdateAPIView):
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import KhachHang  # Thay bằng model của bạn
-from .serializers import KhachHangSerializer  # Thay bằng serializer của bạn
+from .models import KhachHang 
+from .serializers import KhachHangSerializer  
 
 class KhachHangUpdateView(APIView):
     def get_object(self, pk):
