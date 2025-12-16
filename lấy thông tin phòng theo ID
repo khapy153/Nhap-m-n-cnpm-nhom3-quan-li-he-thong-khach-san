@@ -1,0 +1,18 @@
+def get_room_by_id(rooms, room_id):
+    for room in rooms:
+        if room["id"] == room_id:
+            return room
+    return None
+room_id = input("Nhập ID phòng cần tìm: ")
+
+room = get_room_by_id(rooms, room_id)
+
+if room:
+    print("\n📌 THÔNG TIN PHÒNG")
+    print(f"ID phòng: {room['id']}")
+    print(f"Tên phòng: {room['name']}")
+    print(f"Loại phòng: {room['type']}")
+    print(f"Giá phòng: {room['price']:,} VND")
+    print(f"Trạng thái: {room['status']}")
+else:
+    print("❌ Không tìm thấy phòng với ID này!")
