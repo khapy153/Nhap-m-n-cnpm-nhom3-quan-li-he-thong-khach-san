@@ -1,0 +1,61 @@
+# Danh sách người dùng (giả lập)
+USERS = {
+    1: {"username": "admin", "role": "admin"},
+    2: {"username": "user1", "role": "user"},
+    3: {"username": "user2", "role": "user"},
+}
+def is_admin(user):
+    """
+    Kiểm tra người dùng có phải quản trị viên không
+    """
+    return user.get("role") == "admin"
+from users import USERS
+from auth import is_admin
+
+
+def add_user(current_user, user_id, username, role):
+    if not is_admin(current_user):
+        print("❌ Chỉ quản trị viên mới được thêm tài khoản!")
+        return
+
+    USERS[user_id] = {
+        "username": username,
+        "role": role
+    }
+    print("✅ Thêm tài khoản thành công!")
+
+
+def update_user_role(current_user, user_id, new_role):
+    if not is_admin(current_user):
+        print("❌ Chỉ quản trị viên mới được sửa tài khoản!")
+        return
+
+    if user_id not in USERS:
+        print("❌ Không tìm thấy tài khoản!")
+        return
+
+    USERS[user_id]["role"] = new_role
+    print("✅ Cập nhật quyền thành công!")
+
+
+def delete_user(current_user, user_id):
+    if not is_admin(current_user):
+        print("❌ Chỉ quản trị viên mới được xoá tài khoản!")
+        return
+
+    USERS.pop(user_id, None)
+    print("✅ Xoá tài khoản thành công!")
+
+
+# =====================
+# CHẠY THỬ
+# =====================
+if __name__ == "__main__":
+    admin = USERS[1]
+    user = USERS[2]
+
+    add_user(admin, 4, "user3", "user")    # hợp lệ
+    add_user(user, 5, "user4", "user")     # không hợp lệ
+
+    update_user_role(admin, 2, "admin")    # hợp lệ
+    delete_user(user, 3)                   # không hợp lệ
