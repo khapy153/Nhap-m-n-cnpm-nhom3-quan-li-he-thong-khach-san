@@ -1,0 +1,12 @@
+# models.py
+from sqlalchemy import Column, Integer, String, Float
+from database import Base
+
+class Phong(Base):
+    __tablename__ = "phong"
+
+    id_phong = Column(Integer, primary_key=True, index=True)
+    ten_phong = Column(String)
+    loai_phong = Column(String)
+    gia = Column(Float)
+    trang_thai = Column(String)
