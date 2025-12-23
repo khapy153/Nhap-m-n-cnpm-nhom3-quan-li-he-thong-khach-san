@@ -1,0 +1,16 @@
+# Dữ liệu giả lập
+guests = [
+    {"ten": "Nguyễn Văn A", "phong": "P101", "ngay_den": "01/12/2025", "trang_thai": "Đang ở"},
+    {"ten": "Trần Thị B", "phong": "P102", "ngay_den": "03/12/2025", "trang_thai": "Đã trả phòng"},
+    {"ten": "Lê Văn C", "phong": "P103", "ngay_den": "05/12/2025", "trang_thai": "Đang ở"}
+]
+
+def bao_cao_khach_dang_luu_tru():
+    print("DANH SÁCH KHÁCH ĐANG LƯU TRÚ")
+    print("-" * 40)
+    for g in guests:
+        if g["trang_thai"] == "Đang ở":
+            print(f"Tên: {g['ten']} | Phòng: {g['phong']} | Ngày đến: {g['ngay_den']}")
+
+# Chạy báo cáo
+bao_cao_khach_dang_luu_tru()
