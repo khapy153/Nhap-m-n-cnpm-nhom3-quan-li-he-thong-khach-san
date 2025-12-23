@@ -66,7 +66,7 @@ def view_materials():
 def admin_manage_users(role):
     """Quản trị viên quản lý người dùng (image_3a6d4a.png)"""
     if role != "Quản trị viên":
-    return "❌ Quyền truy cập bị từ chối! Chỉ dành cho Quản trị viên."
+     return "❌ Quyền truy cập bị từ chối! Chỉ dành cho Quản trị viên."
     
     print("\n--- 👥 QUẢN LÝ NGƯỜI DÙNG ---")
     # Hiển thị danh sách với thông tin cơ bản
@@ -115,4 +115,5 @@ def main_menu():
             admin_manage_users(role)
 
 if __name__ == "__main__":
+
     main_menu()
